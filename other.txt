@@ -1,0 +1,17 @@
+Write a feature test for a user submitting a new bookmark via a form. 
+Think carefully about how to set up the Sinatra routes for this!
+
+submitting_bookmark_spec.rb
+
+feature 'submitting new bookmark'
+  scenario 'user can submit bookmark' do
+
+
+    connection = PG.connect(dbname: 'bookmark_manager_test')
+    visit('/new')
+
+    expect(page).to have_content "http://www.makersacademy.com"
+    expect(page).to have_content "http://www.destroyallsoftware.com"
+    expect(page).to have_content "http://www.google.com"
+  end
+end
