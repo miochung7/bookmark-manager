@@ -1,0 +1,28 @@
+.bookmark {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1em;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.bookmark a {
+  list-style: none;
+  text-decoration: none;
+  color: rgb(21, 55, 142);
+}
+
+#delete_btn {
+  color: rgb(249, 243, 243);
+  background-color: rgb(225, 144, 146);
+  border-radius: 10px;
+  border: 0;
+  padding: 0.5em;
+  font-size: 0.6em;
+}
+
+#delete_btn:hover {
+  opacity: 80%;
+  cursor: pointer;
+}
