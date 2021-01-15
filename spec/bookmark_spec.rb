@@ -3,8 +3,7 @@ require 'database_helpers'
 
 describe '.all' do
   it 'returns a list of bookmarks' do
-    connection = PG.connect(dbname: 'bookmark_manager_test')
- 
+
     bookmark = Bookmark.create(url: 'http://www.twitter.com', title: 'Twitter')
     Bookmark.create(url: 'http://www.destroyallsoftware.com', title: 'Destroy All Software')
     Bookmark.create(url: 'http://www.google.com', title: 'Google')
@@ -21,6 +20,7 @@ end
 
 describe '.create' do
   it 'a new bookmark' do
+    
     bookmark = Bookmark.create(url: 'http://www.github.com', title: 'Github')
     persisted_data = persisted_data(id: bookmark.id)
     
