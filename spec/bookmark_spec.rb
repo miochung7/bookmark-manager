@@ -38,3 +38,27 @@ describe '.delete' do
     expect(Bookmark.all).not_to include(bookmark)
   end
 end
+
+describe '.update' do
+  it 'updates a bookmark' do
+    bookmark = Bookmark.create(url: 'http://www.github.com', title: 'Github')
+    updated_bookmark = Bookmark.update(id: bookmark.id, title: 'New URL', url: 'http://www.new-url.com')
+
+    expect(updated_bookmark).to be_a Bookmark
+    expect(updated_bookmark.id).to eq(bookmark.id)
+    expect(updated_bookmark.title).to eq('New URL')
+    expect(updated_bookmark.url).to eq('http://www.new-url.com')
+  end
+end
+
+describe '.find' do
+  it 'finds a bookmark' do
+    bookmark = Bookmark.create(url: 'http://www.github.com', title: 'Github')
+
+    result = Bookmark.find(id: bookmark.id)
+    expect(result).to be_a Bookmark
+    expect(result.id).to eq(bookmark.id)
+    expect(result.title).to eq('Github')
+    expect(result.url).to eq('http://www.github.com')
+  end
+end
